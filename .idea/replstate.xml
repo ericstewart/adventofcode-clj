@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ReplState" timestamp="1449505751606">{:repl-history {:ide [], :local [&quot;(use 'adventofcode.day-one)&quot; &quot;(prob-input)&quot; &quot;prob-input&quot; &quot;(seq \&quot;((\&quot;)&quot; &quot;(positions #{1} (0 0 1 2))&quot; &quot;(positions #{1} [0 0 1 2])&quot; &quot;(floor-history (seq \&quot;((\&quot;))&quot; &quot;(find-floor-target \&quot;(()))\&quot; -1)&quot; &quot;(find-floor-target \&quot;)\&quot; -1)&quot; &quot;(find-floor-target prob-input -1)&quot;], :remote []}}</component>
-</project>

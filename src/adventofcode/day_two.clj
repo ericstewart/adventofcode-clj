@@ -1,5 +1,6 @@
 (ns adventofcode.day-two
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.java.io :as io]))
 
 (defn wrapping-paper-needed
   "Calculate total square feet of wrapping paper needed given package dimensions"
@@ -14,20 +15,21 @@
     (+ box-surface-area
        (min surface1 surface2 surface3))))
 
-(defn load-data
-  []
-  (let [filename "resources/day-2-inputs"]
-    (with-open [rdr (clojure.java.io/reader filename)]
-      (reduce conj [] (line-seq rdr)))))
+(def prob2-input
+      (line-seq (io/reader (io/resource "day-2-inputs"))))
+
+
+(defn calc-area-of-present
+  [dimensions]
+  (let [[l w h] (map (fn [s] (Integer/parseInt s))
+                     (str/split dimensions #"x"))]
+    (wrapping-paper-needed l w h)))
 
 (defn total-paper-required
   [data]
   "Calculate the total wrapper paper needed for a whole lot of presents"
   (reduce +
-          (map (fn [row]
-                 (let [[l w h] (map (fn [s] (Integer/parseInt s))
-                                    (str/split row #"x"))]
-                   (wrapping-paper-needed l w h)))
+          (map calc-area-of-present
                data)))
 
 (defn ribbon-required
